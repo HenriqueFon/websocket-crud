@@ -4,7 +4,6 @@ import ejs from 'ejs';
 import bodyParser from "body-parser";
 import {routes} from "../routes/routes.js";
 
-
 //variável para manipular o express
 const app=express();
 
