@@ -1,12 +1,15 @@
 import express from "express";
 import path from "path";
 import ejs from 'ejs';
+import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import {routes} from "../routes/routes.js";
+
 
 //variável para manipular o express
 const app=express();
 
+app.use(cookieParser());
 //extensão para pegar o corpo da requisição
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -19,6 +22,8 @@ app.engine('html',ejs.renderFile)//se a extensão do arquivo for html, executa e
 app.set('view engine','html');
 
 app.use(routes);
+
+
 
 export default app;
 
